@@ -21,8 +21,7 @@ public sealed class WebcamInput : MonoBehaviour
 
     #region Public properties
 
-    public Texture Texture
-      => _dummyImage != null ? _dummyImage : _buffer;
+    public Texture Texture;
 
     #endregion
 
@@ -30,6 +29,7 @@ public sealed class WebcamInput : MonoBehaviour
 
     void Start()
     {
+        Texture = _dummyImage;
         if (_dummyImage != null) return;
         _webcam = new WebCamTexture(_deviceName, _resolution.x, _resolution.y);
         _buffer = new RenderTexture(_resolution.x, _resolution.y, 0);
